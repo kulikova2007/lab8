@@ -1,0 +1,230 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #5a3540;
+  background-color: #fdf4f5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* Шапка — на всю ширину окна */
+#site-header {
+  width: 100%;
+  background-color: #f6dde2;
+  padding: 15px 0;
+}
+
+.site-title {
+  margin: 0;
+  color: #a24d63;
+}
+
+/* Контент */
+#content {
+  flex: 1;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#content h2 {
+  color: #a24d63;
+  border-bottom: 2px solid #eec2cd;
+  padding-bottom: 6px;
+}
+
+/* Подвал — на всю ширину окна, внизу страницы */
+#site-footer {
+  width: 100%;
+  background-color: #f6dde2;
+  color: #5a3540;
+  text-align: center;
+  padding: 15px 0;
+}
+
+#site-footer p {
+  margin: 0;
+}
+
+/* Кнопки */
+.btn {
+  background-color: #d98fa0;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #b5607a;
+}
+
+.btn:disabled {
+  background-color: #eec2cd;
+  cursor: default;
+}
+
+/* ===== Попап (Mobile First: компактно, чтобы форма влезала в экран смартфона) ===== */
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: rgba(90, 53, 64, 0.55);
+}
+
+.popup[hidden] {
+  display: none;
+}
+
+.popup-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 100%;
+  overflow-y: auto;
+  background-color: #fdf4f5;
+  border-radius: 10px;
+  padding: 12px 14px 14px;
+}
+
+.popup-title {
+  margin: 0 30px 8px 0;
+  font-size: 1.15em;
+  color: #a24d63;
+}
+
+.popup-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  color: #a24d63;
+  font-size: 1.8em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#feedback-form input[type="text"],
+#feedback-form input[type="email"],
+#feedback-form input[type="tel"],
+#feedback-form textarea {
+  width: 100%;
+  border: 1px solid #eec2cd;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+#feedback-form textarea {
+  resize: none;
+}
+
+#feedback-form input:focus,
+#feedback-form textarea:focus {
+  outline: 2px solid #d98fa0;
+  border-color: #d98fa0;
+}
+
+#feedback-form input:user-invalid,
+#feedback-form textarea:user-invalid {
+  border-color: #c0392b;
+}
+
+.agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85em;
+}
+
+.agree input {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.form-message {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.9em;
+}
+
+.form-message.success {
+  color: #2e7d4f;
+}
+
+.form-message.error {
+  color: #c0392b;
+}
+
+/* Подписи только для скринридеров (вместо них — placeholder) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Планшеты и десктопы */
+@media screen and (min-width: 768px) {
+  .popup {
+    padding: 20px;
+  }
+
+  .popup-box {
+    padding: 20px 24px 24px;
+  }
+
+  .popup-title {
+    font-size: 1.4em;
+    margin-bottom: 14px;
+  }
+
+  #feedback-form {
+    gap: 12px;
+  }
+
+  #feedback-form textarea {
+    min-height: 100px;
+  }
+}
